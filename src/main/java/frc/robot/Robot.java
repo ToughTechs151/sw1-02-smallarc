@@ -25,8 +25,8 @@ public class Robot extends TimedRobot {
    * the real Command Based Robot pattern, we don't actually have to 
    * do much other than create the Robot in the container and run the
    * scheduler. In this small case we still will not move the
-   * subsystem and commands into their own files. Instead we will 
-   * leave them in the robot container. 
+   * commands into their own files. Instead we will leave them in the
+   * robot container. We do put the subsystem into its own file and folder.
    **/
   /* 
    * We override the robotInit method here to create the robot in the

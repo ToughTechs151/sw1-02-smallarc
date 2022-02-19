@@ -1,0 +1,27 @@
+{
+  "HALProvider": {
+    "PWM Outputs": {
+      "0": {
+        "name": "leftMotor"
+      },
+      "1": {
+        "name": "rightMotor"
+      },
+      "window": {
+        "visible": true
+      }
+    }
+  },
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/DriveSubsystem": "Subsystem",
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler"
+    }
+  },
+  "sourceNames": {
+    "PWM[0]": "leftMotor",
+    "PWM[1]": "rightMotor"
+  }
+}

@@ -1,8 +1,7 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PWMVictorSPX;
+import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OIConstants;
@@ -14,10 +13,10 @@ public class RobotContainer {
      * the previous example, but this time we replace the hard coded port numbers
      * with constants from the Constants file.
      **/
-    private final PWMVictorSPX m_leftmotor = new PWMVictorSPX(DriveConstants.kLeftMotorPort);
-    private final PWMVictorSPX m_rightmotor = new PWMVictorSPX(DriveConstants.kRightMotorPort);
+    private final PWMVictorSPX m_leftmotor = new PWMVictorSPX(DriveConstants.LEFT_MOTOR_PORT);
+    private final PWMVictorSPX m_rightmotor = new PWMVictorSPX(DriveConstants.RIGHT_MOTOR_PORT);
     private final DriveSubsystem m_drivesubsystem = new DriveSubsystem(m_leftmotor, m_rightmotor);
-    private final Joystick m_stick = new Joystick(OIConstants.kJoystickPort);
+    private final Joystick m_stick = new Joystick(OIConstants.JOYSTICK_PORT);
     
     /**
      * In the Command Based Robot pattern, we can specifiy a command that is run 
@@ -35,9 +34,9 @@ public class RobotContainer {
      * these things with a different structure to the code, but we will cover that later.
      **/
     public RobotContainer() {
+        m_rightmotor.setInverted(true);
         m_drivesubsystem.setDefaultCommand(
             new RunCommand(() -> m_drivesubsystem
-            .arcadeDrive(m_stick.getY(GenericHID.Hand.kLeft),
-            m_stick.getX(GenericHID.Hand.kLeft)), m_drivesubsystem));
+            .arcadeDrive(m_stick.getY(), m_stick.getX()), m_drivesubsystem));
     }
 }

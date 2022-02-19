@@ -34,6 +34,7 @@ public class RobotContainer {
      * these things with a different structure to the code, but we will cover that later.
      **/
     public RobotContainer() {
+        /* WPILib no longer sets the right motor inverted. */
         m_rightmotor.setInverted(true);
         m_drivesubsystem.setDefaultCommand(
             new RunCommand(() -> m_drivesubsystem
